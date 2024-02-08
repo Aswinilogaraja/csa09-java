@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class UserNameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Prompt the user to enter the user name twice
+        System.out.print("Enter the user name: ");
+        String userName1 = scanner.nextLine();
+        
+        System.out.print("Reenter the user name: ");
+        String userName2 = scanner.nextLine();
+
+        // Check if the entered user names are equal and meet the validity criteria
+        if (isValidUserName(userName1, userName2)) {
+            System.out.println("User name is Valid");
+        } else {
+            System.out.println("User name is Invalid");
+        }
+    }
+
+    public static boolean isValidUserName(String userName1, String userName2) {
+        // Check if the entered user names are equal
+        if (!userName1.equals(userName2)) {
+            return false;
+        }
+
+        // Check if the user name contains '@' and ends with '789'
+        if (userName1.contains("@") && userName1.endsWith("789")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
