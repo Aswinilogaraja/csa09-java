@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class EvenFibonacciSum {
+    
+    // Function to find sum of even Fibonacci numbers
+    public static long evenFibonacciSum(int n) {
+        long a = 0, b = 1, c = 0, sum = 0;
+        for (int i = 1; i <= n; i++) {
+            c = a + b;
+            a = b;
+            b = c;
+            if (i % 3 == 0) // Every third Fibonacci number is even
+                sum += c;
+        }
+        return sum;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input the value of n
+        System.out.print("Enter the value of n: ");
+        int n = scanner.nextInt();
+        
+        // Calculate the sum of even Fibonacci numbers up to nth term
+        long sum = evenFibonacciSum(n);
+        
+        // Output the result
+        System.out.println("Sum of even Fibonacci numbers till " + n + "th term: " + sum);
+        
+        scanner.close();
+    }
+}
