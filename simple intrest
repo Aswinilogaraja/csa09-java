@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class SimpleInterestCalculator {
+    
+    // Function to calculate simple interest
+    public static double calculateSimpleInterest(double principal, int years, boolean isSeniorCitizen) {
+        double rateOfInterest = isSeniorCitizen ? 0.12 : 0.10; // Senior citizen: 12%, Others: 10%
+        return principal * rateOfInterest * years;
+    }
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Input principal amount
+        System.out.print("Enter the principal amount: ");
+        double principal = scanner.nextDouble();
+        
+        // Input number of years
+        System.out.print("Enter the number of years: ");
+        int years = scanner.nextInt();
+        
+        // Input if customer is a senior citizen
+        System.out.print("Is customer a senior citizen? (y/n): ");
+        char response = scanner.next().charAt(0);
+        boolean isSeniorCitizen = (response == 'y' || response == 'Y');
+        
+        // Calculate simple interest using the function
+        double interest = calculateSimpleInterest(principal, years, isSeniorCitizen);
+        
+        // Output the result
+        System.out.println("Interest: " + interest);
+        
+        scanner.close();
+    }
+}
